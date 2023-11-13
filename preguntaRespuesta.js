@@ -28,9 +28,9 @@ const accentFold = (text) => {
     .toLowerCase();
 };
 
-// Función para buscar respuestas en la base de datos MongoDB
-app.post('/buscarRespuesta', async (req, res) => {
-  const pregunta = req.body.pregunta;
+// Cambiamos el método POST a GET
+app.get('/buscarRespuesta', async (req, res) => {
+  const pregunta = req.query.pregunta; // Cambiamos a req.query para obtener los parámetros desde la URL
 
   const db = client.db('nombre_de_tu_db');
   const collection = db.collection('preguntas_respuestas');

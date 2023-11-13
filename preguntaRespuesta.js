@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 // Conectar a la base de datos MongoDB
 const uri = 'mongodb+srv://chatbotequilibriaagro:123456789s@cluster0.bh0426f.mongodb.net/?retryWrites=true&w=majority';
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri);
 
 async function connectToDB() {
   try {

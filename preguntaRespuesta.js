@@ -20,31 +20,31 @@ async function connectToDB() {
   }
 }
 
+// Ajustamos la función accentFold para evitar problemas con la normalización Unicode
 const accentFold = (text) => {
   return text
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[.,\/#!$%\^&\*;:{}=\_`~()?¿¡'"@|<>\[\]]/g, '')
+    .normalize('NFD')  // Normalizamos caracteres Unicode para eliminar diacríticos
+    .replace(/[\u0300-\u036f]/g, '')  // Reemplazamos diacríticos
+    .replace(/[.,\/#!$%\^&\*;:{}=\_`~()?¿¡'"@|<>\[\]]/g, '')  // Quitamos caracteres especiales
     .toLowerCase();
 };
 
-// Cambiamos el método POST a GET
-app.get('/buscarRespuesta', async (req, res) => {
-  const pregunta = req.query.pregunta; // Cambiamos a req.query para obtener los parámetros desde la URL
+// Cambiamos el método GET a POST
+app.post('/buscarRespuesta', async (req, res) => {
+  const pregunta = req.body.pregunta; // Obtenemos la pregunta desde el cuerpo de la solicitud
 
   const db = client.db('nombre_de_tu_db');
   const collection = db.collection('preguntas_respuestas');
 
-  const tokenizer = new natural.WordTokenizer();
-  const preguntaTokenizada = accentFold(pregunta);
-
   const preguntas = await collection.find({}).toArray();
 
   for (const item of preguntas) {
-    const textoTokenizado = accentFold(item.texto);
+    const tokenizer = new natural.WordTokenizer(); // Tokenizamos aquí
+    const preguntaTokenizada = tokenizer.tokenize(accentFold(pregunta)); // Aplicamos tokenización y normalización
+    const textoTokenizado = tokenizer.tokenize(accentFold(item.texto)); // Aplicamos tokenización y normalización
+
     const todasLasPalabrasPresentes = preguntaTokenizada
-      .split(' ')
-      .every((word) => textoTokenizado.split(' ').includes(word));
+      .every((word) => textoTokenizado.includes(word)); // Comparamos las palabras
 
     if (todasLasPalabrasPresentes) {
       return res.json({ respuesta: item.respuesta });

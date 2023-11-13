@@ -7,7 +7,6 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// Conectar a la base de datos MongoDB
 const uri = 'mongodb+srv://chatbotequilibriaagro:123456789s@cluster0.bh0426f.mongodb.net/?retryWrites=true&w=majority';
 const client = new MongoClient(uri);
 
@@ -20,33 +19,33 @@ async function connectToDB() {
   }
 }
 
-// Ajustamos la función accentFold para evitar problemas con la normalización Unicode
 const accentFold = (text) => {
   return text
-    .normalize('NFD')  // Normalizamos caracteres Unicode para eliminar diacríticos
-    .replace(/[\u0300-\u036f]/g, '')  // Reemplazamos diacríticos
-    .replace(/[.,\/#!$%\^&\*;:{}=\_`~()?¿¡'"@|<>\[\]]/g, '')  // Quitamos caracteres especiales
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[.,\/#!$%\^&\*;:{}=\_`~()?¿¡'"@|<>\[\]]/g, '')
     .toLowerCase();
 };
 
-// Cambiamos el método GET a POST
 app.post('/buscarRespuesta', async (req, res) => {
-  const pregunta = req.body.pregunta; // Obtenemos la pregunta desde el cuerpo de la solicitud
+  const pregunta = req.body.pregunta;
 
   const db = client.db('nombre_de_tu_db');
   const collection = db.collection('preguntas_respuestas');
 
   const preguntas = await collection.find({}).toArray();
 
+  const preguntaTokenizada = accentFold(pregunta).split(' ');
+
   for (const item of preguntas) {
-    const tokenizer = new natural.WordTokenizer(); // Tokenizamos aquí
-    const preguntaTokenizada = tokenizer.tokenize(accentFold(pregunta)); // Aplicamos tokenización y normalización
-    const textoTokenizado = tokenizer.tokenize(accentFold(item.texto)); // Aplicamos tokenización y normalización
+    const textoTokenizado = accentFold(item.texto).split(' ');
 
-    const todasLasPalabrasPresentes = preguntaTokenizada
-      .every((word) => textoTokenizado.includes(word)); // Comparamos las palabras
+    const intersection = new Set([...preguntaTokenizada].filter(word => textoTokenizado.includes(word)));
+    const union = new Set([...preguntaTokenizada, ...textoTokenizado]);
 
-    if (todasLasPalabrasPresentes) {
+    const jaccardIndex = intersection.size / union.size;
+
+    if (jaccardIndex > 0.5) {
       return res.json({ respuesta: item.respuesta });
     }
   }
@@ -54,7 +53,6 @@ app.post('/buscarRespuesta', async (req, res) => {
   return res.json({ respuesta: 'Lo siento, no tengo una respuesta para esa pregunta.' });
 });
 
-// Realiza la conexión a la base de datos
 connectToDB();
 
 const PORT = process.env.PORT || 3000;

@@ -1,4 +1,4 @@
-const express = require('express');// Express para encender el servidor en un puerto
+const express = require('express');//Express para encender el servidor en un puerto
 const natural = require('natural');// IA
 const { MongoClient } = require('mongodb');//base de dato
 const bodyParser = require('body-parser');// para organizar la respuesta y darla
@@ -29,6 +29,8 @@ const accentFold = (text) => {
     .toLowerCase();
 };
 
+// ...
+
 // POST
 app.post('/buscarRespuesta', async (req, res) => {
   const pregunta = req.body.pregunta; // Obtenemos la pregunta desde el cuerpo de la solicitud
@@ -38,24 +40,35 @@ app.post('/buscarRespuesta', async (req, res) => {
 
   const preguntas = await collection.find({}).toArray();
 
-
   //IA
   for (const item of preguntas) {
     const tokenizer = new natural.WordTokenizer(); // Tokenizamos aquí
     const preguntaTokenizada = tokenizer.tokenize(accentFold(pregunta)); // Aplicamos tokenización y normalización
     const textoTokenizado = tokenizer.tokenize(accentFold(item.texto)); // Aplicamos tokenización y normalización
 
-    const todasLasPalabrasPresentes = preguntaTokenizada
-      .every((word) => textoTokenizado.includes(word)); // Comparamos las palabras
-//IA
+    // Validación de palabras mal escritas
+    const palabrasCorregidas = preguntaTokenizada.map((word) => {
+      // Ajusta esta distancia según sea necesario
+      const distanciaMinima = 0.8; // Puedes ajustar este valor según tus necesidades
+      const palabrasSimilares = textoTokenizado.filter(
+        (textoWord) => natural.JaroWinklerDistance(word, textoWord) > distanciaMinima
+      );
+      return palabrasSimilares.length > 0 ? palabrasSimilares[0] : word;
+    });
 
+    const todasLasPalabrasPresentes = palabrasCorregidas.every((word) => textoTokenizado.includes(word));
+
+    //IA
     if (todasLasPalabrasPresentes) {
-      return res.json({ respuesta: item.respuesta }); // si si cumplio todo, va a poner la respuesta correcta o aproximada
+      return res.json({ respuesta: item.respuesta }); // si sí cumplió todo, va a poner la respuesta correcta o aproximada
     }
   }
 
   return res.json({ respuesta: 'Lo siento, no tengo una respuesta para esa pregunta.' });
 });
+
+// ...
+
 
 // Realiza la conexión a la base de datos
 connectToDB();

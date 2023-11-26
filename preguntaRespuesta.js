@@ -72,6 +72,8 @@ app.post('/buscarRespuesta', async (req, res) => {
 
 // ...
 
+// ...
+
 // POST para preguntas al asesor
 app.post('/preguntasAsesor', async (req, res) => {
   const pregunta = req.body.pregunta; // Obtén la pregunta desde el cuerpo de la solicitud
@@ -97,13 +99,10 @@ app.post('/preguntasAsesor', async (req, res) => {
       return palabrasSimilares.length > 0 ? palabrasSimilares[0] : word;
     });
 
-    const todasLasPalabrasPresentes = palabrasCorregidas.every((word) => textoTokenizado.includes(word));
-
-    // Verificar si más del 50% de las palabras fueron cambiadas
-    const porcentajeSimilitud = 1 - (palabrasCorregidas.filter((word, index) => word === preguntaTokenizada[index]).length / preguntaTokenizada.length);
+    const algunasPalabrasSimilares = palabrasCorregidas.filter((word, index) => word !== preguntaTokenizada[index]).length > 0;
 
     // Validación adicional
-    if (todasLasPalabrasPresentes && porcentajeSimilitud < 0.5) {
+    if (algunasPalabrasSimilares) {
       return res.json({ respuesta: item.respuesta, asesor: true }); // si sí cumplió todo, va a poner la respuesta correcta o aproximada
     }
   }
@@ -111,8 +110,6 @@ app.post('/preguntasAsesor', async (req, res) => {
   // Respuesta para preguntas fuera del margen
   return res.json({ respuesta: 'Gracias por tu pregunta. Sin embargo, no estoy seguro de entender completamente. ¿Puedes proporcionar más detalles o reformular tu pregunta?', asesor: false });
 });
-
-// ...
 
 
 

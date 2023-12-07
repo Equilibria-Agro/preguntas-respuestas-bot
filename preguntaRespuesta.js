@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Conectar a la base de datos MongoDB
-const uri = 'mongodb+srv://practicanteit:y2I5cqgX8qONLfyJ@cluster0.r0f8zqx.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://admin:QhER5MpHQ949Wkuu@cluster0.r0f8zqx.mongodb.net/?retryWrites=true&w=majority';
 const client = new MongoClient(uri);
 
 async function connectToDB() {

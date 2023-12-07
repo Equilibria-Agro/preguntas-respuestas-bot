@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Conectar a la base de datos MongoDB
-const uri = 'mongodb+srv://chatbotequilibriaagro:123456789s@cluster0.bh0426f.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://practicanteit:y2I5cqgX8qONLfyJ@cluster0.r0f8zqx.mongodb.net/?retryWrites=true&w=majority';
 const client = new MongoClient(uri);
 
 async function connectToDB() {
@@ -35,7 +35,7 @@ const accentFold = (text) => {
 app.post('/buscarRespuesta', async (req, res) => {
   const pregunta = req.body.pregunta; // Obtenemos la pregunta desde el cuerpo de la solicitud
 
-  const db = client.db('nombre_de_tu_db');
+  const db = client.db('ChatBotPR');
   const collection = db.collection('preguntas_respuestas');
 
   const preguntas = await collection.find({}).toArray();
@@ -78,7 +78,7 @@ app.post('/buscarRespuesta', async (req, res) => {
 app.post('/preguntasAsesor', async (req, res) => {
   const pregunta = req.body.pregunta; // Obtén la pregunta desde el cuerpo de la solicitud
 
-  const db = client.db('nombre_de_tu_db');
+  const db = client.db('ChatBotPR');
   const collection = db.collection('respuestas_generales'); // Cambia al nombre de tu tabla para respuestas generales
 
   const respuestasGenerales = await collection.find({}).toArray();

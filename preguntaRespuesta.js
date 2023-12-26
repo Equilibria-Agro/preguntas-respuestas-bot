@@ -2,6 +2,7 @@ const express = require('express');//Express para encender el servidor en un pue
 const natural = require('natural');// IA
 const { MongoClient } = require('mongodb');//base de dato
 const bodyParser = require('body-parser');// para organizar la respuesta y darla
+const tf = require('@tensorflow/tfjs');
 
 const app = express();
 
@@ -29,7 +30,6 @@ const accentFold = (text) => {
     .toLowerCase();
 };
 
-// ...
 
 // POST
 app.post('/buscarRespuesta', async (req, res) => {
@@ -70,9 +70,99 @@ app.post('/buscarRespuesta', async (req, res) => {
   return res.json({ respuesta: 'Lo siento, no entiendo la pregunta. ¿Puedes reformularla?' });
 });
 
-// ...
 
-// ...
+const stringSimilarity = require('string-similarity');
+
+
+// Nuevo método para gestionar respuestas de ChatGPT
+async function obtenerRespuestaChatGPT(pregunta, respuesta) {
+  const db = client.db('ChatBotPR');
+  const collection = db.collection('preguntas_respuestas');
+
+  const preguntas = await collection.find({}).toArray();
+
+  // Buscamos respuestas en la base de datos que contengan palabras clave de la pregunta
+  const respuestasPorPregunta = preguntas.filter(item => {
+    const tokenizer = new natural.WordTokenizer(); // Tokenizamos aquí
+    const preguntaTokenizada = tokenizer.tokenize(accentFold(pregunta)); // Aplicamos tokenización y normalización
+    const textoTokenizado = tokenizer.tokenize(accentFold(item.texto)); // Aplicamos tokenización y normalización
+
+    // Calculamos la similitud de Jaccard entre las palabras de la pregunta proporcionada y la pregunta almacenada
+    const similitudPregunta = stringSimilarity.compareTwoStrings(preguntaTokenizada.join(' '), textoTokenizado.join(' '));
+
+    // Priorizamos la similitud de la pregunta si es mayor
+    return similitudPregunta > 0.7;
+  });
+
+  // Si encontramos respuestas por pregunta, devolvemos la primera coincidencia
+  if (respuestasPorPregunta.length > 0) {
+    return {
+      respuesta: respuestasPorPregunta[0].respuesta,
+      pregunta: respuestasPorPregunta[0].texto,
+      encontrado: true
+    };
+  }
+
+  // Si no encontramos respuestas por pregunta, buscamos respuestas similares en todas las preguntas
+  let respuestaSimilar = null;
+  let preguntaSimilar = null;
+  let similitudMaxima = 0;
+
+  for (const item of preguntas) {
+    const tokenizer = new natural.WordTokenizer(); // Tokenizamos aquí
+    const respuestaTokenizada = tokenizer.tokenize(accentFold(respuesta)); // Aplicamos tokenización y normalización
+    const textoTokenizado = tokenizer.tokenize(accentFold(item.respuesta)); // Aplicamos tokenización y normalización
+
+    // Calculamos la similitud de Jaccard entre las palabras de la respuesta proporcionada y la respuesta almacenada
+    const similitudJaccard = stringSimilarity.compareTwoStrings(respuestaTokenizada.join(' '), textoTokenizado.join(' '));
+
+    // Actualizamos la respuesta similar si la similitud es mayor
+    if (similitudJaccard > similitudMaxima) {
+      similitudMaxima = similitudJaccard;
+      respuestaSimilar = item.respuesta;
+      preguntaSimilar = item.texto;
+    }
+  }
+
+  // Si encuentra una respuesta similar con suficiente similitud, la devuelve junto con la pregunta correspondiente
+  if (respuestaSimilar && similitudMaxima > 0.5) {
+    const preguntaEncontrada = preguntas.find(item => item.respuesta === respuestaSimilar);
+    return { respuesta: respuestaSimilar, pregunta: preguntaEncontrada.texto, encontrado: false };
+  }
+
+  // Si no encuentra una respuesta similar, devuelve la respuesta original de ChatGPT
+  return { respuesta, encontrado: false };
+}
+
+
+
+
+
+// POST para obtener respuestas de ChatGPT
+app.post('/obtenerRespuestaChatGPT', async (req, res) => {
+  const pregunta = req.body.pregunta; // Obtén la pregunta desde el cuerpo de la solicitud
+  const respuestaChatGPT = req.body.respuesta; // Obtén la respuesta desde el cuerpo de la solicitud
+
+  try {
+    // Llamada al nuevo método para procesar la respuesta de ChatGPT
+    const resultado = await obtenerRespuestaChatGPT(pregunta, respuestaChatGPT);
+
+    if (resultado.encontrado) {
+      // Si se encuentra una respuesta en la base de datos, la enviamos al cliente
+      return res.json({ respuesta: resultado.respuesta });
+    } else {
+      // Si no se encuentra una respuesta en la base de datos, devolvemos la respuesta original de ChatGPT
+      // o la respuesta similar encontrada junto con la pregunta correspondiente
+      return res.json({ respuesta: resultado.respuesta, preguntaSimilar: resultado.pregunta });
+    }
+  } catch (error) {
+    console.error('Error al procesar respuesta de ChatGPT:', error);
+    return res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+
 
 // POST para preguntas al asesor
 app.post('/preguntasAsesor', async (req, res) => {

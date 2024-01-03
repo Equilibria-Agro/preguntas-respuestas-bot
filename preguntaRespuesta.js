@@ -87,7 +87,7 @@ async function obtenerRespuestaChatGPT(pregunta, respuesta) {
     const preguntaTokenizada = tokenizer.tokenize(accentFold(pregunta)); // Aplicamos tokenización y normalización
     const textoTokenizado = tokenizer.tokenize(accentFold(item.texto)); // Aplicamos tokenización y normalización
 
-    // Calculamos la similitud de Jaccard entre las palabras de la pregunta proporcionada y la pregunta almacenada
+    // Calculamos la similitud de vJaccard entre las palabras de la pregunta proporcionada y la pregunta almacenada
     const similitudPregunta = stringSimilarity.compareTwoStrings(preguntaTokenizada.join(' '), textoTokenizado.join(' '));
 
     // Priorizamos la similitud de la pregunta si es mayor

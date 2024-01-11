@@ -221,7 +221,7 @@ const app = express();
 app.use(bodyParser.json()); // para parsear application/json
 
 const openai = new OpenAI({
-  apiKey: "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"
+  apiKey: "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"
 });
 
 app.post('/get-response', async (req, res) => {
@@ -237,6 +237,7 @@ app.post('/get-response', async (req, res) => {
       messages: [{ role: 'user', content: question }],
       model: modelId,
     });
+
 
     res.json({ response: chatCompletion.choices[0].message.content });
   } catch (error) {

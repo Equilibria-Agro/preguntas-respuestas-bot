@@ -224,7 +224,7 @@ app.use(bodyParser.json({ limit: '10kb' })); // Límite de tamaño para el body 
 app.use(helmet()); // Seguridad adicional para headers HTTP
 
 const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY // Utiliza una variable de entorno para la clave API
+  apiKey: process.env.OPENAI_API_KEY // Utiliza una variable de entorno para la clave API
 });
 
 app.post('/get-response', async (req, res) => {

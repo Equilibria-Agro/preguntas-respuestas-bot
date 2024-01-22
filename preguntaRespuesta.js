@@ -14,7 +14,7 @@ const openai = new OpenAI({
 
 app.post('/get-response', async (req, res) => {
   try {
-    const modelId = "ft:gpt-3.5-turbo-1106:equilibria::8iPnEt3k"; // Reemplaza con el ID de tu modelo Fine-tuned
+    const modelId = "ft:gpt-3.5-turbo-1106:equilibria::8juqiVbn"; // Reemplaza con el ID de tu modelo Fine-tuned
     const question = req.body.question;
 
     if (typeof question !== 'string' || question.trim().length === 0) {

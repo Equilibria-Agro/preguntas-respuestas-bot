@@ -22,7 +22,10 @@ app.post('/get-response', async (req, res) => {
     }
 
     const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: 'user', content: question }],
+      messages: [{
+        "role": "system",
+        "content": "No vas a responder preguntas que no sean relacionadas al limon NUNCA"
+      }, { role: 'user', content: question }],
       model: modelId,
     });
 

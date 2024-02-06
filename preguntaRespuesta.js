@@ -108,6 +108,14 @@ app.post('/get-response', async (req, res) => {
             "role": "assistant",
             "content": "En el primer año, un cultivo de limón tahití necesita 3 kilos de azufre por hectárea."
           },
+          {
+            "role": "user",
+            "content": "¿Qué es un marco de siembra 3 bolillos?"
+          },
+          {
+            "role": "assistant",
+            "content": "En el sistema tresbolillo, las plantas ocupan en el terreno cada uno de los vértices de un triángulo equilátero, es decir, sus tres lados tienen distancias iguales, guardando siempre la misma distancia entre plantas y entre surcos. En el sistema de plantación al tresbolillo, el número de plantas que cabe por unidad de superficie es mayor que en cualquier otro sistema regular, siendo la diferencia mayor cuanto más estrecho es el marco elegido. Es apropiado para plantaciones intensivas y permite dar las labores de cultivo en tres direcciones."
+          },
         
         { role: 'user', content: question }
       ]

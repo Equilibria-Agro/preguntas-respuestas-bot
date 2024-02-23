@@ -814,6 +814,226 @@ app.post('/get-response', async (req, res) => {
       "role": "assistant",
       "content": "Los fuertes vientos pueden dañar físicamente los árboles y frutos, además de aumentar la evapotranspiración. Plantar barreras cortavientos o utilizar estructuras de protección puede minimizar estos efectos negativos y proteger los cultivos."
   },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué estrategias de mercado existen para los productores de Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: Las estrategias de mercado pueden incluir la certificación orgánica, la diversificación de productos (como aceites esenciales o jugos), y la venta directa a consumidores o a través de mercados locales y en línea para alcanzar nichos específicos y mejorar los márgenes de ganancia."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué papel juega la certificación en la producción de Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: La certificación, como la orgánica o la de comercio justo, puede abrir accesos a mercados especializados y premium, asegurando a los consumidores que los productos se han producido siguiendo estándares específicos de sostenibilidad y equidad."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo se puede mejorar la eficiencia del agua en el cultivo del Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: Mejorar la eficiencia del agua puede lograrse mediante técnicas de riego precisas, como el riego por goteo o la microaspersión, junto con la monitorización del estado hídrico del suelo y el uso de mulch o acolchado para reducir la evaporación."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cuáles son las mejores prácticas para el almacenamiento y transporte del Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: Las mejores prácticas incluyen el enfriamiento rápido de los frutos después de la cosecha, el almacenamiento a temperaturas y humedades óptimas para reducir la pérdida de calidad, y el uso de embalajes que protejan los frutos durante el transporte y minimicen el daño."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué importancia tiene el análisis de suelo en el cultivo de Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: El análisis de suelo es crucial en el cultivo de Limón Tahití porque permite conocer la composición de nutrientes presentes, lo cual es fundamental para una fertilización efectiva. Este conocimiento ayuda a los agricultores a aplicar la cantidad exacta de fertilizantes necesarios, evitando el exceso o déficit de nutrientes que pueden afectar negativamente el crecimiento del cultivo. Al ajustar la fertilización según las necesidades específicas del suelo, se promueve un desarrollo más saludable de las plantas, se mejora el rendimiento del cultivo y se contribuye a la sostenibilidad ambiental al minimizar el impacto negativo de los fertilizantes en el suelo y aguas subterráneas."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo se toman muestras de suelo para análisis en un cultivo de Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: La toma de muestras de suelo para análisis en un cultivo de Limón Tahití involucra varios pasos para asegurar que las muestras sean representativas del campo. Primero, se divide la finca en áreas homogéneas basadas en características como inclinación, tipo y edad del cultivo, color y textura del suelo. Luego, se realiza un recorrido en zigzag o en forma de X dentro de cada área para tomar submuestras de suelo, evitando áreas atípicas como bordes de cercas o caminos. Se recolectan al menos 15 submuestras por hectárea, que luego se mezclan para formar una muestra compuesta que se enviará al laboratorio para su análisis."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué nutrientes son esenciales para el cultivo de Limón Tahití y cómo influyen en su desarrollo?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: Los nutrientes esenciales para el cultivo de Limón Tahití incluyen macronutrientes como nitrógeno (N), fósforo (P), y potasio (K), y micronutrientes como hierro (Fe), zinc (Zn), y manganeso (Mn). El nitrógeno es vital para el crecimiento vegetativo y el desarrollo de las hojas, el fósforo contribuye al desarrollo de raíces y frutos, y el potasio mejora la calidad de los frutos y la resistencia de la planta a enfermedades. Los micronutrientes, aunque necesarios en menores cantidades, son fundamentales para procesos específicos que afectan la salud y productividad del cultivo."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo afecta el pH del suelo al cultivo de Limón Tahití y cómo se puede ajustar?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: El pH del suelo afecta la disponibilidad de nutrientes para el cultivo de Limón Tahití. Un pH muy alto o muy bajo puede limitar la absorción de nutrientes esenciales, afectando el crecimiento y la productividad de las plantas. Idealmente, el suelo debe tener un pH ligeramente ácido a neutro. Para ajustar el pH del suelo, se pueden aplicar enmiendas como cal para aumentar el pH o azufre para disminuirlo, dependiendo de las necesidades específicas del suelo determinadas por el análisis de suelo."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cuál es el papel de la materia orgánica en el suelo para el cultivo de Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: La materia orgánica juega un rol crucial en la mejora de la estructura del suelo, la capacidad de retención de agua y nutrientes, y la actividad biológica del suelo en el cultivo de Limón Tahití. Al incorporar materia orgánica, como compost o estiércol, se promueve un suelo más saludable, se facilita el desarrollo de las raíces, y se mejora la disponibilidad de nutrientes. Esto resulta en plantas más vigorosas y productivas, contribuyendo a un cultivo más sostenible y productivo."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo se debe realizar el riego en un cultivo de Limón Tahití para promover un crecimiento óptimo?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: El riego adecuado en un cultivo de Limón Tahití es vital para el desarrollo saludable de las plantas y la producción de frutos. La cantidad y frecuencia del riego dependen de varios factores como el tipo de suelo, el clima, y la etapa de crecimiento de las plantas. Un riego eficiente debe mantener el suelo húmedo pero sin encharcamientos, para evitar el riesgo de enfermedades radiculares. Sistemas de riego por goteo son recomendados para maximizar la eficiencia del agua y asegurar una distribución uniforme."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué técnicas de poda son recomendadas para el Limón Tahití y por qué?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: La poda es una técnica de manejo esencial en el cultivo de Limón Tahití que ayuda a mantener la salud de las plantas, promover una buena estructura y mejorar la producción de frutos. Se recomienda realizar podas de formación en los primeros años para desarrollar una estructura sólida del árbol. Podas de mantenimiento y saneamiento se realizan para remover ramas secas, enfermas o que crecen hacia el interior del árbol, lo cual mejora la circulación de aire y la exposición a la luz solar."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo se controlan las plagas y enfermedades en el cultivo de Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: El control de plagas y enfermedades en el Limón Tahití requiere de un enfoque integrado que incluye prácticas culturales, biológicas y químicas. Es importante realizar monitoreos regulares para detectar problemas a tiempo. Prácticas como la rotación de cultivos, la eliminación de restos vegetales infectados, y el uso de variedades resistentes pueden ayudar a prevenir problemas. Cuando sea necesario, se pueden aplicar productos fitosanitarios, preferiblemente aquellos con menor impacto ambiental y siguiendo las recomendaciones de un experto."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cuál es la importancia de la polinización en el cultivo de Limón Tahití y cómo se puede mejorar?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: La polinización es crucial para la producción de frutos en el Limón Tahití. Aunque muchas variedades de limón son autocompatibles, la presencia de polinizadores como las abejas puede mejorar significativamente el cuajado de frutos. Para promover una buena polinización, se puede fomentar la presencia de polinizadores naturales mediante la plantación de flores y plantas que les atraigan en las cercanías del cultivo o, en algunos casos, mediante la introducción de colmenas de abejas."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué prácticas de manejo sostenible se pueden aplicar en el cultivo de Limón Tahití para mejorar la salud del suelo y la eficiencia del agua?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: Las prácticas de manejo sostenible en el cultivo de Limón Tahití incluyen la rotación de cultivos, la cobertura del suelo con mulch o abonos verdes, y la implementación de sistemas de riego eficientes como el riego por goteo. Estas prácticas ayudan a mantener la estructura y fertilidad del suelo, reducir la erosión, mejorar la retención de agua y nutrientes, y minimizar el uso de recursos hídricos. También es fundamental realizar análisis de suelo y agua regularmente para ajustar las prácticas de manejo y fertilización según las necesidades específicas del cultivo."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué métodos se recomiendan para fertilizar adecuadamente un cultivo de Limón Tahití?"
+  },
+  {
+    "role": "assistant",
+    "content": "Respuesta: La fertilización adecuada de un cultivo de Limón Tahití debe basarse en los resultados del análisis de suelo y foliar para aplicar los nutrientes específicos que necesita el cultivo. Se recomienda el uso de fertilizantes orgánicos, como compost y estiércol, y minerales, siguiendo un plan de fertilización que equilibre los macronutrientes (N, P, K) y micronutrientes (Fe, Zn, Mn) necesarios. La aplicación de fertilizantes debe ajustarse según la etapa de desarrollo del cultivo, aplicando más cantidad durante la temporada de crecimiento activo y menos durante las fases de reposo."
+  },
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo influye el clima en el cultivo de Limón Tahití?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "En Colombia, se cultiva esta especie desde el nivel del mar hasta los 2.100 metros sobre el nivel del mar. Sin embargo, para fines comerciales, se sugiere cultivar hasta los 1.600 metros sobre el nivel del mar. La zona citrícola tiene temperaturas promedio entre 18 y 30 grados Celsius, que son adecuadas para el desarrollo del cultivo. El rango de temperatura ideal para los cítricos está entre 12,5 y 39 grados Celsius, siendo 23,4 grados Celsius el nivel óptimo. En cuanto a la precipitación, el patrón de lluvias del país determina una o dos cosechas al año. En el caso de la Limón Tahití, este patrón define la floración y los niveles máximos en la curva de producción, ya que se cosecha durante todo el año. Las heladas pueden ser muy dañinas, mientras que temperaturas extremadamente altas pueden afectar la floración y cuajado de frutos. La humedad relativa adecuada y una distribución equilibrada de lluvias a lo largo del año son importantes para evitar estrés hídrico y enfermedades fúngicas."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué estrategias se pueden emplear para gestionar el estrés hídrico en Limón Tahití?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "Para gestionar el estrés hídrico en Limón Tahití, es crucial implementar sistemas de riego eficientes, como el riego por goteo, que aseguran una distribución uniforme del agua directamente a las raíces, minimizando la pérdida por evaporación. También, la mulchización o acolchado del suelo ayuda a conservar la humedad y reduce la temperatura del suelo. Se deben ajustar los calendarios de riego basándose en el análisis del clima, la etapa de desarrollo de la planta y la capacidad de retención de agua del suelo."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cuáles son las mejores prácticas para la cosecha del Limón Tahití para asegurar la calidad del fruto?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "Las mejores prácticas para la cosecha del Limón Tahití incluyen seleccionar frutos que hayan alcanzado su tamaño y color característico, evitando daños mecánicos durante la recolección. La cosecha debe realizarse manualmente o con herramientas apropiadas para cortar el pedúnculo, evitando tirar del fruto. Es importante cosechar en las horas más frescas del día para reducir el estrés del fruto y almacenarlos en condiciones adecuadas de temperatura y humedad para mantener su calidad hasta su comercialización."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo se puede mejorar la calidad del suelo en un cultivo de Limón Tahití a largo plazo?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "Mejorar la calidad del suelo en un cultivo de Limón Tahití a largo plazo requiere prácticas sostenibles como la rotación de cultivos, incorporación de materia orgánica (compost, estiércol), manejo adecuado del riego para evitar salinización y erosión, y el uso de cultivos de cobertura para proteger el suelo. Estas prácticas aumentan la biodiversidad del suelo, mejoran su estructura y fertilidad, y favorecen un sistema más resiliente y productivo."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué papel juega la biodiversidad en un cultivo de Limón Tahití y cómo se puede fomentar?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "La biodiversidad en un cultivo de Limón Tahití es esencial para mantener un ecosistema equilibrado, controlar plagas y enfermedades de manera natural, y promover la salud del suelo. Se puede fomentar mediante la implementación de setos vivos, la conservación de áreas naturales dentro y alrededor de las plantaciones, y el uso de prácticas agrícolas que promuevan la presencia de insectos beneficiosos, aves y otros polinizadores. Estas prácticas contribuyen a un manejo integrado de plagas y una agricultura más sostenible."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cuál es la importancia de la certificación orgánica para el cultivo de Limón Tahití?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "La certificación orgánica para el cultivo de Limón Tahití aumenta su valor en el mercado, asegurando a los consumidores que los productos han sido cultivados siguiendo prácticas ambientales sostenibles y sin el uso de pesticidas químicos sintéticos. Esta certificación no solo mejora la percepción de calidad y seguridad alimentaria entre los consumidores sino también permite a los productores acceder a mercados más lucrativos y cumplir con regulaciones de exportación más estrictas. Implementar prácticas orgánicas contribuye a la sostenibilidad del medio ambiente, mejora la salud del suelo y la biodiversidad."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo afecta la selección de variedades al éxito del cultivo de Limón Tahití?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "La selección de variedades es fundamental para el éxito del cultivo de Limón Tahití, ya que diferentes variedades presentan distintas características en términos de resistencia a enfermedades, adaptabilidad climática, y calidad de fruto. Elegir variedades adecuadas para las condiciones locales de clima y suelo puede resultar en un mejor crecimiento de las plantas, mayor resistencia a plagas y enfermedades, y una producción de frutos más abundante y de mejor calidad. La investigación y experimentación con diferentes variedades pueden ayudar a identificar las más adecuadas para una región específica."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cuál es el impacto de la gestión del riego en la producción y calidad del Limón Tahití?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "Una gestión adecuada del riego es esencial para la producción y calidad del Limón Tahití. Un riego insuficiente puede causar estrés hídrico, afectando negativamente el desarrollo del fruto y reduciendo la producción. Por otro lado, un riego excesivo puede provocar la lixiviación de nutrientes, enfermedades radiculares y una disminución en la calidad del fruto. Implementar un sistema de riego eficiente y ajustar el riego según las necesidades específicas del cultivo y las condiciones climáticas puede optimizar el uso del agua, mejorar la calidad del fruto y aumentar los rendimientos."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Qué medidas de manejo integrado de plagas se recomiendan para el cultivo de Limón Tahití?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "El manejo integrado de plagas (MIP) para el cultivo de Limón Tahití implica la combinación de prácticas culturales, biológicas y químicas para controlar plagas de manera efectiva y sostenible. Esto incluye la rotación de cultivos, el uso de variedades resistentes, el fomento de enemigos naturales de las plagas, y la aplicación de pesticidas sólo como último recurso y de manera selectiva. El MIP ayuda a reducir la dependencia de productos químicos, disminuir el impacto ambiental y mantener la biodiversidad, contribuyendo a una producción más sostenible y económicamente viable."
+  },
+  
+  {
+    "role": "user",
+    "content": "Pregunta: ¿Cómo se prepara el terreno antes de plantar Limón Tahití?"
+  },
+  
+  {
+    "role": "assistant",
+    "content": "Preparar el terreno para plantar Limón Tahití implica limpiar el área de malezas y residuos, analizar el suelo para determinar las necesidades de enmiendas y fertilizantes, y asegurar un buen drenaje. Se recomienda realizar labranzas que permitan airear el suelo y facilitar el desarrollo de las raíces. La preparación también puede incluir la creación de camas o surcos elevados en áreas propensas a encharcamientos para prevenir enfermedades radiculares."
+  },
+  
 
         { role: 'user', content: question }
       ]

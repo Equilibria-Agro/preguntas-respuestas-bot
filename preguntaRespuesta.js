@@ -26,9 +26,9 @@ app.post('/get-response', async (req, res) => {
       messages: [
         {
           "role": "system",
-              "content": "Si te preguntan quien o que eres di: “Soy Germán, el asistente agrónomo de Equilibria Agro”. Tu enfoque y fuerte es el Limón Tahití, solo respondes preguntas relacionadas al limón tahití, cuidados, consejos, tips y dudas relacionadas con estos temas, la idea es que apoyes siempre solo estos temas y seas formal, tu solo respondes preguntas de limón tahtí, cuidados, consejos, tips y dudas relacionadas con estos temas, si te preguntan por temas distintos como deportes, historia, matemáticas o más le dices que tu conocimiento se limita a cítricos en general y especialmente Limón Tahití. Responderas amablamente siempre saludando, y cuando hablen de otros temas los orientas a que pregunten por estos temas que te mencione. NUNCA RESPONDER PREGUNTAS NO RELACIONADAS CON LIMÓN TAHITÍ, TIPS, CUIDADOS, CONSEJOS Y/O CONSULTAS QUE NO SEAN DE LIMON. QUIERO QUE DE LA LISTA DE PREGUNTAS Y RESPUESTAS QUE TE DARÉ NUNCA PERO NUNCA MODIFIQUES LAS PREGUNTAS Y/O RESPUESTAS, NUNCA MODIFIQUES LA RESPUESTA, NUNCA, QUE LA RESPUESTA SEA TAL CUAL. A LO MISMO QUE LAS PREGUNTAS DE TU ENTRENAMIENTOO JSONL QUIERO QUE SIGAS ESAS MISMAS REGLAS. PERO APARTE QUIERO QUE SI NO TIENES LAS RESPUESTA EN TU BASE DE DATOS DE LIMÓN TAHITÍ IGUAL LA RESPONDAS, QUIERO QUE ALARGUES LA RESPUESTA HASTA 200 PALABRAS, PERO QUE NO ME MODIFIQUES EL MENSAJE, SIMPLEMENTE LA RESPUESTA Y SIGUES AGREGANDO TEXTO AL FINAL. QUIERO QUE ME RESPONDAS TAL CUAL LAS PREGUNTAS PRE-CARGADAS, TAL CUAL, NO ME CAMBIES NADA"
+              "content": "Si te preguntan quién o qué eres, responde: 'Soy Germán, el asistente agrónomo de Equilibria Agro'. Mi especialidad y enfoque es el Limón Tahití. Solo responderé preguntas relacionadas con el Limón Tahití, incluyendo cuidados, consejos, tips y dudas relacionadas. Si se hacen preguntas sobre temas diferentes por ejemplo deportes, historia o matemáticas, indicaré que mi conocimiento se limita a cítricos en general y especialmente al Limón Tahití. Siempre responderé amablemente, guiando a los usuarios a preguntar sobre temas relacionados con el Limón Tahití. Nunca responderé preguntas no relacionadas con el Limón Tahití, cuidados, consejos, tips y/o consultas que no sean de limón. Aunque no tenga la respuesta en mi base de datos sobre el Limón Tahití, extenderé la respuesta hasta 200 palabras sin modificar el mensaje original, siempre priorizas dar el mensaje que esta precargado ya sea en mi entrenamiento o en mi historial, solo agregando información relevante relacionada a la respuesta."
         },
-{
+        {
           "role": "user",
           "content": "¿Cuándo podar?"
         },
@@ -36,7 +36,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "En Colombia, es beneficioso podar un árbol de limón Tahití después de la temporada de cosecha principal, durante el inicio de la temporada seca o antes del inicio de la temporada de lluvias para permitir una cicatrización adecuada de las heridas de poda. La poda también puede realizarse para mantener la forma y el tamaño del árbol en cualquier momento del año según sea necesario. Es importante considerar las condiciones locales y la salud del árbol al decidir el momento óptimo para podar, asegurando así un crecimiento saludable y una producción fructífera."
         },
-{
+        {
           "role": "user",
           "content": "¿Qué tipos de poda hay?"
         },
@@ -52,9 +52,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "Debe realizarse con el inicio de las lluvias, aunque la disponibilidad de riego permitirá realizar esta labor en cualquier época del año. Una vez ubicadas las plantas en los sitios de plantación, se retira la bolsa y se ubica la planta en el centro del hoyo (de 40x40x40 cm, estas dimensiones pueden variar en relación con las características del suelo), procurando que el cuello quede unos 5-10 cm por encima de la superficie. Otro tipo de metodología es realizar siembra en (tortas). Esto consta de armar un montículo de tierra de unos 30 o 40 cm de altura y sembrar el árbol en el medio del ella. Esto hará que el árbol al expandir las raíces se encuentre con tierra suelta y pueda captar más agua y más nutrientes. A diferencia de loa siembra en hoyo no se encontrará con capas duras en el suelo en sus primeras etapas de crecimiento que retrasen o detengan su crecimiento.  En ambos casos el diámetro del plato debe de ser de 3 metros y el árbol debe de ir acompañado de un tutor."
         },
-
-
-{
+        {
           "role": "user",
           "content": "¿Cómo se siembra un árbol de limón Tahití?"
         },
@@ -62,8 +60,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "Debe realizarse con el inicio de las lluvias, aunque la disponibilidad de riego permitirá realizar esta labor en cualquier época del año. Una vez ubicadas las plantas en los sitios de plantación, se retira la bolsa y se ubica la planta en el centro del hoyo (de 40x40x40 cm, estas dimensiones pueden variar en relación con las características del suelo), procurando que el cuello quede unos 5-10 cm por encima de la superficie. Otro tipo de metodología es realizar siembra en (tortas). Esto consta de armar un montículo de tierra de unos 30 o 40 cm de altura y sembrar el árbol en el medio del ella. Esto hará que el árbol al expandir las raíces se encuentre con tierra suelta y pueda captar más agua y más nutrientes. A diferencia de loa siembra en hoyo no se encontrará con capas duras en el suelo en sus primeras etapas de crecimiento que retrasen o detengan su crecimiento.  En ambos casos el diámetro del plato debe de ser de 3 metros y el árbol debe de ir acompañado de un tutor."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cómo se siembra un árbol correctamente?"
         },
@@ -80,8 +77,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "Debe realizarse con el inicio de las lluvias, aunque la disponibilidad de riego permitirá realizar esta labor en cualquier época del año. Una vez ubicadas las plantas en los sitios de plantación, se retira la bolsa y se ubica la planta en el centro del hoyo (de 40x40x40 cm, estas dimensiones pueden variar en relación con las características del suelo), procurando que el cuello quede unos 5-10 cm por encima de la superficie. Otro tipo de metodología es realizar siembra en (tortas). Esto consta de armar un montículo de tierra de unos 30 o 40 cm de altura y sembrar el árbol en el medio del ella. Esto hará que el árbol al expandir las raíces se encuentre con tierra suelta y pueda captar más agua y más nutrientes. A diferencia de loa siembra en hoyo no se encontrará con capas duras en el suelo en sus primeras etapas de crecimiento que retrasen o detengan su crecimiento.  En ambos casos el diámetro del plato debe de ser de 3 metros y el árbol debe de ir acompañado de un tutor."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cómo sembrar un árbol de limón??"
         },
@@ -89,8 +85,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "Debe realizarse con el inicio de las lluvias, aunque la disponibilidad de riego permitirá realizar esta labor en cualquier época del año. Una vez ubicadas las plantas en los sitios de plantación, se retira la bolsa y se ubica la planta en el centro del hoyo (de 40x40x40 cm, estas dimensiones pueden variar en relación con las características del suelo), procurando que el cuello quede unos 5-10 cm por encima de la superficie. Otro tipo de metodología es realizar siembra en (tortas). Esto consta de armar un montículo de tierra de unos 30 o 40 cm de altura y sembrar el árbol en el medio del ella. Esto hará que el árbol al expandir las raíces se encuentre con tierra suelta y pueda captar más agua y más nutrientes. A diferencia de loa siembra en hoyo no se encontrará con capas duras en el suelo en sus primeras etapas de crecimiento que retrasen o detengan su crecimiento.  En ambos casos el diámetro del plato debe de ser de 3 metros y el árbol debe de ir acompañado de un tutor."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cómo sembrar un árbol de limón Tahití?"
         },
@@ -107,19 +102,15 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "Debe realizarse con el inicio de las lluvias, aunque la disponibilidad de riego permitirá realizar esta labor en cualquier época del año. Una vez ubicadas las plantas en los sitios de plantación, se retira la bolsa y se ubica la planta en el centro del hoyo (de 40x40x40 cm, estas dimensiones pueden variar en relación con las características del suelo), procurando que el cuello quede unos 5-10 cm por encima de la superficie. Otro tipo de metodología es realizar siembra en (tortas). Esto consta de armar un montículo de tierra de unos 30 o 40 cm de altura y sembrar el árbol en el medio del ella. Esto hará que el árbol al expandir las raíces se encuentre con tierra suelta y pueda captar más agua y más nutrientes. A diferencia de loa siembra en hoyo no se encontrará con capas duras en el suelo en sus primeras etapas de crecimiento que retrasen o detengan su crecimiento.  En ambos casos el diámetro del plato debe de ser de 3 metros y el árbol debe de ir acompañado de un tutor."
         },
-
-
-{
+        {
           "role": "user",
           "content": "¿A que distancia debería de sembrar los árboles?"
         },
-
         {
           "role": "assistant",
           "content": "Las distancias de plantación y su arreglo para el cultivo de lima ácida Tahití han venido cambiando en las diferentes regiones productoras de Colombia. Inicialmente, se utilizaban el cuadrado o el tresbolillo, con una distancia de 7 m entre plantas, pero se ha venido perdiendo interés en estos sistemas, debido a la mecanización de los cultivos, que se puede realizar mejor en las plantaciones rectangulares. Los arreglos más utilizados en suelos planos son en rectángulo, con variaciones de la distancia tanto entre filas como entre plantas. Dependiendo del tamaño del patrón seleccionado, así como de la fertilidad natural del suelo y las características climáticas, las distancias más usadas son 7 m entre filas y 5 o 6 m entre plantas."
         },
-
-{
+        {
           "role": "user",
           "content": "¿A qué distancia sembrar limón Tahití?"
         },
@@ -127,8 +118,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "Las distancias de plantación y su arreglo para el cultivo de lima ácida Tahití han venido cambiando en las diferentes regiones productoras de Colombia. Inicialmente, se utilizaban el cuadrado o el tresbolillo, con una distancia de 7 m entre plantas, pero se ha venido perdiendo interés en estos sistemas, debido a la mecanización de los cultivos, que se puede realizar mejor en las plantaciones rectangulares. Los arreglos más utilizados en suelos planos son en rectángulo, con variaciones de la distancia tanto entre filas como entre plantas. Dependiendo del tamaño del patrón seleccionado, así como de la fertilidad natural del suelo y las características climáticas, las distancias más usadas son 7 m entre filas y 5 o 6 m entre plantas."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Hasta que altura puedo sembrar limón?"
         },
@@ -136,8 +126,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La lima ácida Tahití se cultiva en altitudes que oscilan desde el nivel del mar hasta los 2.100 metros sobre el nivel del mar. Para fines comerciales, se recomienda establecerla desde los 700 metros sobre el nivel del mar hasta los 1.600 metros sobre el nivel del mar en la mayoría de los departamentos del país."
         },
-
-{
+        {
           "role": "user",
           "content": "¿A qué altura sembrar limón?"
         },
@@ -145,8 +134,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La lima ácida Tahití se cultiva en altitudes que oscilan desde el nivel del mar hasta los 2.100 metros sobre el nivel del mar. Para fines comerciales, se recomienda establecerla desde los 700 metros sobre el nivel del mar hasta los 1.600 metros sobre el nivel del mar en la mayoría de los departamentos del país."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Hasta que altura puedo sembrar limón Tahití?"
         },
@@ -154,8 +142,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La lima ácida Tahití se cultiva en altitudes que oscilan desde el nivel del mar hasta los 2.100 metros sobre el nivel del mar. Para fines comerciales, se recomienda establecerla desde los 700 metros sobre el nivel del mar hasta los 1.600 metros sobre el nivel del mar en la mayoría de los departamentos del país."
         },
-
-{
+        {
           "role": "user",
           "content": "¿A qué altura sembrar limón Tahití?"
         },
@@ -163,8 +150,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La lima ácida Tahití se cultiva en altitudes que oscilan desde el nivel del mar hasta los 2.100 metros sobre el nivel del mar. Para fines comerciales, se recomienda establecerla desde los 700 metros sobre el nivel del mar hasta los 1.600 metros sobre el nivel del mar en la mayoría de los departamentos del país."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Qué tipo de suelo es mejor para el limón Tahití?"
         },
@@ -172,8 +158,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "En cuanto a las exigencias edáficas, el cultivo de los cítricos se adapta mejor a condiciones de suelos arenosos profundos, francos o franco - arcillosos. Su sistema radicular no tolera la humedad, por ende, no es muy tolerante a los suelos arcillosos. También es importante aclarar que los suelos muy arenosos no tendrán mucha capacidad de retener agua y habrá que regar más seguido."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Qué tipo de suelo es bueno?"
         },
@@ -181,8 +166,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "En cuanto a las exigencias edáficas, el cultivo de los cítricos se adapta mejor a condiciones de suelos arenosos profundos, francos o franco - arcillosos. Su sistema radicular no tolera la humedad, por ende, no es muy tolerante a los suelos arcillosos. También es importante aclarar que los suelos muy arenosos no tendrán mucha capacidad de retener agua y habrá que regar más seguido."
         },
-
-{
+        {
           "role": "user",
           "content": "¿En qué suelo puedo sembrar?"
         },
@@ -190,8 +174,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "En cuanto a las exigencias edáficas, el cultivo de los cítricos se adapta mejor a condiciones de suelos arenosos profundos, francos o franco - arcillosos. Su sistema radicular no tolera la humedad, por ende, no es muy tolerante a los suelos arcillosos. También es importante aclarar que los suelos muy arenosos no tendrán mucha capacidad de retener agua y habrá que regar más seguido."
         },
-
-{
+        {
           "role": "user",
           "content": "¿En qué suelo puedo sembrar limón?"
         },
@@ -199,8 +182,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "En cuanto a las exigencias edáficas, el cultivo de los cítricos se adapta mejor a condiciones de suelos arenosos profundos, francos o franco - arcillosos. Su sistema radicular no tolera la humedad, por ende, no es muy tolerante a los suelos arcillosos. También es importante aclarar que los suelos muy arenosos no tendrán mucha capacidad de retener agua y habrá que regar más seguido."
         },
-
-{
+        {
           "role": "user",
           "content": "¿En qué suelo puedo sembrar limón Tahití?"
         },
@@ -208,8 +190,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "En cuanto a las exigencias edáficas, el cultivo de los cítricos se adapta mejor a condiciones de suelos arenosos profundos, francos o franco - arcillosos. Su sistema radicular no tolera la humedad, por ende, no es muy tolerante a los suelos arcillosos. También es importante aclarar que los suelos muy arenosos no tendrán mucha capacidad de retener agua y habrá que regar más seguido."
         },
-
-{
+        {
           "role": "user",
           "content": "¿En qué rango de temperatura puedo sembrar limón Tahití?"
         },
@@ -217,8 +198,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La región citrícola experimenta temperaturas que oscilan entre 18 y 30 ºC, condiciones adecuadas para el crecimiento de los cítricos. El rango de temperaturas óptimo para estos frutos se encuentra entre 12,5 y 39 °C, con un nivel ideal de 23,4 °C."
         },
-
-{
+        {
           "role": "user",
           "content": "¿A qué temperatura sembrar limón?"
         },
@@ -226,8 +206,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La región citrícola experimenta temperaturas que oscilan entre 18 y 30 ºC, condiciones adecuadas para el crecimiento de los cítricos. El rango de temperaturas óptimo para estos frutos se encuentra entre 12,5 y 39 °C, con un nivel ideal de 23,4 °C."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Qué temperatura es buena para el limón Tahití?"
         },
@@ -235,17 +214,15 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La región citrícola experimenta temperaturas que oscilan entre 18 y 30 ºC, condiciones adecuadas para el crecimiento de los cítricos. El rango de temperaturas óptimo para estos frutos se encuentra entre 12,5 y 39 °C, con un nivel ideal de 23,4 °C."
         },
-
-{
-          "role": "user",
+        {
+            "role": "user",
           "content": "¿Cómo fertilizar?"
         },
         {
           "role": "assistant",
           "content": "La aplicación de fertilizante en Limón Tahití debe hacerse con cuidado. Una técnica común es aplicar el fertilizante en la zona de gotera del árbol, que es el área directamente debajo del alcance de las ramas. Debes evitar que el fertilizante entre en contacto directo con las raíces para prevenir daños. Es importante que el suelo esté húmedo al momento de la aplicación para asegurar una absorción efectiva de los nutrientes. La aplicación puede ser al suelo o foliar, según las necesidades específicas del cultivo. Es importante aclarar que las fertilización se debe de hacer después de las lluvias para que el árbol lo pueda absorber de la mejor manera."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cómo fertilizar un árbol de limón?"
         },
@@ -253,8 +230,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La aplicación de fertilizante en Limón Tahití debe hacerse con cuidado. Una técnica común es aplicar el fertilizante en la zona de gotera del árbol, que es el área directamente debajo del alcance de las ramas. Debes evitar que el fertilizante entre en contacto directo con las raíces para prevenir daños. Es importante que el suelo esté húmedo al momento de la aplicación para asegurar una absorción efectiva de los nutrientes. La aplicación puede ser al suelo o foliar, según las necesidades específicas del cultivo. Es importante aclarar que las fertilización se debe de hacer después de las lluvias para que el árbol lo pueda absorber de la mejor manera."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cómo fertilizar un árbol de limón Tahití?"
         },
@@ -262,8 +238,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La aplicación de fertilizante en Limón Tahití debe hacerse con cuidado. Una técnica común es aplicar el fertilizante en la zona de gotera del árbol, que es el área directamente debajo del alcance de las ramas. Debes evitar que el fertilizante entre en contacto directo con las raíces para prevenir daños. Es importante que el suelo esté húmedo al momento de la aplicación para asegurar una absorción efectiva de los nutrientes. La aplicación puede ser al suelo o foliar, según las necesidades específicas del cultivo. Es importante aclarar que las fertilización se debe de hacer después de las lluvias para que el árbol lo pueda absorber de la mejor manera."
         },
-
-{
+        {
           "role": "user",
           "content": "¿De qué manera se fertiliza un árbol?"
         },
@@ -271,8 +246,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La aplicación de fertilizante en Limón Tahití debe hacerse con cuidado. Una técnica común es aplicar el fertilizante en la zona de gotera del árbol, que es el área directamente debajo del alcance de las ramas. Debes evitar que el fertilizante entre en contacto directo con las raíces para prevenir daños. Es importante que el suelo esté húmedo al momento de la aplicación para asegurar una absorción efectiva de los nutrientes. La aplicación puede ser al suelo o foliar, según las necesidades específicas del cultivo. Es importante aclarar que las fertilización se debe de hacer después de las lluvias para que el árbol lo pueda absorber de la mejor manera."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Qué formas hay de fertilizar?"
         },
@@ -280,8 +254,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La aplicación de los fertilizantes sólidos se puede realizar principalmente al voleo  y en corona . El primer método causa que las plantas expandan las raíces superficiales por toda el área de la copa, y el segundo que las raíces crezcan hasta la gotera de la copa en busca del fertilizante, lo que genera un mejor anclaje.  En este sentido, se sugiere intercalar los dos métodos, para garantizar un buen desarrollo  de  las  raíces  y  un  mayor  aprovechamiento  del  fertilizante.  Es necesario tener en cuenta que, en el momento de aplicar los fertilizantes, el área que va de la gotera al tronco de la planta debe estar libre de malezas, y en ambos métodos es importante que el fertilizante sea incorporado al suelo, para asegurar una mayor eficiencia."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cómo fertilizar correctamente un árbol de limón?"
         },
@@ -289,8 +262,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La aplicación de fertilizantes en Limón Tahití debe hacerse con cuidado. Una técnica común es aplicar el fertilizante en la zona de gotera del árbol, que es el área directamente debajo del alcance de las ramas. Debes evitar que el fertilizante entre en contacto directo con las raíces para prevenir daños. Es importante que el suelo esté húmedo al momento de la aplicación para asegurar una absorción efectiva de los nutrientes. La aplicación puede ser al suelo o foliar, según las necesidades específicas del cultivo. Es importante aclarar que las fertilización se debe de hacer después de las lluvias para que el árbol lo pueda absorber de la mejor manera."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cómo aplicar un fertilizante?"
         },
@@ -298,9 +270,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La aplicación de fertilizante en Limón Tahití debe hacerse con cuidado. Una técnica común es aplicar el fertilizante en la zona de gotera del árbol, que es el área directamente debajo del alcance de las ramas. Debes evitar que el fertilizante entre en contacto directo con las raíces para prevenir daños. Es importante que el suelo esté húmedo al momento de la aplicación para asegurar una absorción efectiva de los nutrientes. La aplicación puede ser al suelo o foliar, según las necesidades específicas del cultivo. Es importante aclarar que las fertilización se debe de hacer después de las lluvias para que el árbol lo pueda absorber de la mejor manera."
         },
-
-
-{
+        {
           "role": "user",
           "content": "¿En qué época es mejor fertilizar?"
         },
@@ -308,8 +278,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "La mejor época para fertilizar es en la temporada de lluvias o después de alguna lluvia. Esto es porque al suelo estar húmedo, las plantas pueden absorberlo de mejor manera. Antes de una lluvia no es recomendable ya que se pueden lavar si esta es de mucha intensidad."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cuánto fertilizante necesita el limón?"
         },
@@ -317,8 +286,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "El manejo adecuado de los nutrientes es esencial para garantizar un crecimiento óptimo de los cultivos a lo largo de su ciclo de vida. Durante el primer año, se recomienda aplicar 12 kg/ha de nitrógeno, 3 kg/ha de fósforo y 15 kg/ha de potasio para establecer una base sólida para el desarrollo inicial de las plantas. A medida que el cultivo madura, las necesidades nutricionales aumentan: en el segundo año, se sugiere incrementar las cantidades a 24 kg/ha de nitrógeno, 6 kg/ha de fósforo y 31 kg/ha de potasio para apoyar un crecimiento más vigoroso. Para el tercer año, las demandas nutricionales continúan aumentando, con recomendaciones de 49 kg/ha de nitrógeno, 12 kg/ha de fósforo y 61 kg/ha de potasio para estimular una producción robusta y sostenible. El cuarto año marca una etapa crucial en el ciclo de vida del cultivo, donde se aconseja aplicar 98 kg/ha de nitrógeno, 24 kg/ha de fósforo y 123 kg/ha de potasio para mantener un rendimiento óptimo y una salud vigorosa de las plantas. Finalmente, durante el quinto año, se recomienda una aplicación de 122 kg/ha de nitrógeno, 76 kg/ha de fósforo y 384 kg/ha de potasio para garantizar una cosecha abundante y de alta calidad. Estas recomendaciones nutricionales proporcionan una guía fundamental para maximizar la productividad y la rentabilidad en el manejo de cultivos a lo largo de su ciclo de vida."
         },
-
-{
+        {
           "role": "user",
           "content": "¿Cuánto fertilizante aplicarle al limón?"
         },
@@ -338,18 +306,7 @@ app.post('/get-response', async (req, res) => {
           "role": "user",
           "content": "¿Cómo podar?"
         },
-       /* {
-          "role": "assistant",
-          "content": "Esto dependerá del tipo de poda. A continuación, los tipos de poda y sus descripciones:  Poda de formación: La poda de árboles es una práctica esencial para moldear la estructura de las plantas y garantizar su desarrollo vegetativo y productivo. Comienza en el vivero, continúa después del trasplante y finaliza antes de la fase de producción. Al podar, se busca que el tallo principal permanezca erguido y sin brotes no deseados hasta una altura de 70 a 80 cm. El corte del tallo principal rompe la dominancia apical, estimulando el crecimiento de brotes debajo de ese punto. Se seleccionan tres o cuatro de estos brotes, distribuidos alrededor del tallo, con una distancia de 4 a 5 cm entre ellos. Luego, se recomienda recortar estas ramas nuevamente entre 12 y 15 cm para fomentar el desarrollo de nuevas ramas que conformarán la copa del árbol. Esta práctica culmina en la fase vegetativa, con 10 a 12 ramas bien distribuidas y espaciadas que sostendrán la copa durante la etapa productiva. Poda en etapa de desarrollo: En esta fase, el objetivo es preparar la planta para su etapa productiva. Para lograrlo, se deben mantener los crecimientos orientados hacia la producción y evitar la poda excesiva, que podría retrasar la producción. Aquí algunas consideraciones clave: - Eliminación de chupones o brotes no deseados: Es importante quitar los chupones temprana y manualmente. Si se hace tarde, pueden volverse leñosos y causar heridas en la planta, lo que requiere aplicar productos de protección. - Ramas bajas y cruzadas: Se deben eliminar las ramas bajas y aquellas que se cruzan. Las que tengan mejor orientación y desarrollo vegetativo, y estén sanas, deben conservarse. Poda de mantenimiento y saneamiento: - Eliminación de chupones y ramas improductivas: Continúa retirando los chupones del patrón y la copa. También, identifica y elimina las ramas dentro de la copa que no contribuyen a la producción y aquellas que crecen verticalmente sin ser productivas debido a su dominancia apical. - Manejo de ramas cruzadas: En caso de ramas que se cruzan, prioriza la más vigorosa, con abundante follaje y una orientación favorable. Esto ayudará a mantener una estructura equilibrada. - Poda anual: Al menos una vez al año, realiza una poda para eliminar ramas enfermas o con crecimiento deficiente. También, considera las limitaciones nutricionales al seleccionar las ramas a podar. - Ramas bajeras: Las ramas cercanas al suelo deben ser recortadas para facilitar las labores de fertilización y control de malezas. Se recomienda dejarlas a una altura mínima de 40 cm para evitar que los frutos toquen el suelo, lo que podría afectar su calidad comercial."
-        },
-        {
-          "role": "user",
-          "content": "¿Cómo podar un árbol de limón?"
-        },
-        {
-          "role": "assistant",
-          "content": "Esto dependerá del tipo de poda. A continuación, los tipos de poda y sus descripciones: Poda de formación: La poda de árboles es una práctica esencial para moldear la estructura de las plantas y garantizar su desarrollo vegetativo y productivo. Comienza en el vivero, continúa después del trasplante y finaliza antes de la fase de producción. Al podar, se busca que el tallo principal permanezca erguido y sin brotes no deseados hasta una altura de 70 a 80 cm. El corte del tallo principal rompe la dominancia apical, estimulando el crecimiento de brotes debajo de ese punto. Se seleccionan tres o cuatro de estos brotes, distribuidos alrededor del tallo, con una distancia de 4 a 5 cm entre ellos. Luego, se recomienda recortar estas ramas nuevamente entre 12 y 15 cm para fomentar el desarrollo de nuevas ramas que conformarán la copa del árbol. Esta práctica culmina en la fase vegetativa, con 10 a 12 ramas bien distribuidas y espaciadas que sostendrán la copa durante la etapa productiva. Poda en etapa de desarrollo:  En esta fase, el objetivo es preparar la planta para su etapa productiva. Para lograrlo, se deben mantener los crecimientos orientados hacia la producción y evitar la poda excesiva, que podría retrasar la producción. Aquí algunas consideraciones clave:- Eliminación de chupones o brotes no deseados: Es importante quitar los chupones temprana y manualmente. Si se hace tarde, pueden volverse leñosos y causar heridas en la planta, lo que requiere aplicar productos de protección.- Ramas bajas y cruzadas: Se deben eliminar las ramas bajas y aquellas que se cruzan. Las que tengan mejor orientación y desarrollo vegetativo, y estén sanas, deben conservarse. Poda de mantenimiento y saneamiento: - Eliminación de chupones y ramas improductivas: Continúa retirando los chupones del patrón y la copa. También, identifica y elimina las ramas dentro de la copa que no contribuyen a la producción y aquellas que crecen verticalmente sin ser productivas debido a su dominancia apical.- Manejo de ramas cruzadas: En caso de ramas que se cruzan, prioriza la más vigorosa, con abundante follaje y una orientación favorable. Esto ayudará a mantener una estructura equilibrada.- Poda anual: Al menos una vez al año, realiza una poda para eliminar ramas enfermas o con crecimiento deficiente. También, considera las limitaciones nutricionales al seleccionar las ramas a podar. - Ramas bajeras: Las ramas cercanas al suelo deben ser recortadas para facilitar las labores de fertilización y control de malezas. Se recomienda dejarlas a una altura mínima de 40 cm para evitar que los frutos toquen el suelo, lo que podría afectar su calidad comercial."
-        },  */
+      
         {
           "role": "user",
           "content": "¿Cómo se prepara el suelo para plantar Limón Tahití?"
@@ -993,12 +950,11 @@ app.post('/get-response', async (req, res) => {
     "role": "assistant",
     "content": "La certificación orgánica para el cultivo de Limón Tahití aumenta su valor en el mercado, asegurando a los consumidores que los productos han sido cultivados siguiendo prácticas ambientales sostenibles y sin el uso de pesticidas químicos sintéticos. Esta certificación no solo mejora la percepción de calidad y seguridad alimentaria entre los consumidores sino también permite a los productores acceder a mercados más lucrativos y cumplir con regulaciones de exportación más estrictas. Implementar prácticas orgánicas contribuye a la sostenibilidad del medio ambiente, mejora la salud del suelo y la biodiversidad."
   },
-  
+
   {
     "role": "user",
     "content": "Pregunta: ¿Cómo afecta la selección de variedades al éxito del cultivo de Limón Tahití?"
   },
-  
   {
     "role": "assistant",
     "content": "La selección de variedades es fundamental para el éxito del cultivo de Limón Tahití, ya que diferentes variedades presentan distintas características en términos de resistencia a enfermedades, adaptabilidad climática, y calidad de fruto. Elegir variedades adecuadas para las condiciones locales de clima y suelo puede resultar en un mejor crecimiento de las plantas, mayor resistencia a plagas y enfermedades, y una producción de frutos más abundante y de mejor calidad. La investigación y experimentación con diferentes variedades pueden ayudar a identificar las más adecuadas para una región específica."
@@ -1034,8 +990,7 @@ app.post('/get-response', async (req, res) => {
     "content": "Preparar el terreno para plantar Limón Tahití implica limpiar el área de malezas y residuos, analizar el suelo para determinar las necesidades de enmiendas y fertilizantes, y asegurar un buen drenaje. Se recomienda realizar labranzas que permitan airear el suelo y facilitar el desarrollo de las raíces. La preparación también puede incluir la creación de camas o surcos elevados en áreas propensas a encharcamientos para prevenir enfermedades radiculares."
   },
   
-
-        { role: 'user', content: question }
+     { role: 'user', content: question }
       ]
     });
 

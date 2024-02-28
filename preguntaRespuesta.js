@@ -868,7 +868,8 @@ app.post('/get-response', async (req, res) => {
 {     "role": "user",     "content": "Pregunta: ¿Cómo debo de almacenar el limón?"   },	{     "role": "assistant",     "content": "Respuesta: La temperatura ejerce un efecto determinante en la vida útil de la fruta en poscosecha: por cada 10 °C de aumento de la temperatura, la velocidad de deterioro se duplica o triplica, debido al incremento de la tasa de respiración y transpiración. La primera implica el rápido consumo de las reservas de azúcares y ácidos, mientras que la segunda conduce a la deshidratación de la fruta. Se debe de almacenar en lugares poco húmedos y de temperaturas bajas, o al menos que no esté en exposición directa al sol. Poner poli sombras o guardar la cosecha en cuartos y no al nivel del suelo hará que el limón no se madure tan rápido y no se deshidrate."   },
 {     "role": "user",     "content": "Pregunta: ¿Cómo guardar el limón luego de la cosecha?"   },	{     "role": "assistant",     "content": "Respuesta: La temperatura ejerce un efecto determinante en la vida útil de la fruta en poscosecha: por cada 10 °C de aumento de la temperatura, la velocidad de deterioro se duplica o triplica, debido al incremento de la tasa de respiración y transpiración. La primera implica el rápido consumo de las reservas de azúcares y ácidos, mientras que la segunda conduce a la deshidratación de la fruta. Se debe de almacenar en lugares poco húmedos y de temperaturas bajas, o al menos que no esté en exposición directa al sol. Poner poli sombras o guardar la cosecha en cuartos y no al nivel del suelo hará que el limón no se madure tan rápido y no se deshidrate."},
            
-    
+{ role: 'user', content: question }
+
 ]
     });
 

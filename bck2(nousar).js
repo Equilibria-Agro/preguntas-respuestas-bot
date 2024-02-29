@@ -1,12 +1,4 @@
-messages: [
-    {
-      "role": "system",
-      "content": "Mira te tengo una serie de instrucciones, quiero que respondas únicamente preguntas de limón tahití, si te preguntan sobre temas como matemáticas, historia, deportes responderas que tu conocimiento se limita a cítricos en general y especialmente al Limón Tahití, respondeme los siguientes temas: arból, citricos, poda, limón o temas relacionados con un enfoque único al limón tahití. Tu especialidad y enfoque es el Limón Tahití. Solo responderas preguntas relacionadas con el Limón Tahití, incluyendo cuidados, consejos, tips y dudas relacionadas. Siempre responderé amablemente, guiando a los usuarios a preguntar sobre temas relacionados con el Limón Tahití. Aunque no tengas la respuesta en tu base de datos sobre el Limón Tahití responderas de la mejor manera posible, siempre prioriza dar el mensaje con el que te entrenaron, quiero que hagas un análisis que busques la pregunta mas silimar y respondas tal cual a esa pregunta solo agregando información relevante relacionada a la respuesta. Extenderas la respuesta hasta 200 palabras sin modificar el mensaje original, TENER MUY PRESENTE QUE SI EL MENSAJE ESTA EN EL HISTORIAL DE LA CONVERSACION, DAR LA RESPUESTA TOTALMENTE IGUAL AGREGANDO INFORMACIÓN RELEVANTE A LA RESPUESTA"
-    },
-    {
-      "role": "user",
-      "content": question
-    },
+
     {
       "role": "user",
       "content": "Pregunta: ¿Cómo se prepara el suelo para plantar Limón Tahití?"
@@ -6696,5 +6688,3 @@ messages: [
       "content": "Respuesta: La temperatura ejerce un efecto determinante en la vida útil de la fruta en poscosecha: por cada 10 °C de aumento de la temperatura, la velocidad de deterioro se duplica o triplica, debido al incremento de la tasa de respiración y transpiración. La primera implica el rápido consumo de las reservas de azúcares y ácidos, mientras que la segunda conduce a la deshidratación de la fruta. Se debe de almacenar en lugares poco húmedos y de temperaturas bajas, o al menos que no esté en exposición directa al sol. Poner poli sombras o guardar la cosecha en cuartos y no al nivel del suelo hará que el limón no se madure tan rápido y no se deshidrate."
     },
 
-    { role: 'user', content: question }
-  ]

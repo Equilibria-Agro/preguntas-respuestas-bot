@@ -65,7 +65,7 @@ app.post('/get-response', async (req, res) => {
         ...similarQuestionsResponses, // Incorporamos las respuestas de preguntas similares aquí
         { role: 'user', content: question }
       ],
-      temperature: 1,
+      temperature: 0,
 
     });
     console.log("Enviando a OpenAI:", JSON.stringify(chatCompletion, null, 2));

@@ -55,24 +55,21 @@ app.post('/get-response', async (req, res) => {
 
     const modelId = "ft:gpt-3.5-turbo-1106:equilibria::8p6IHucG";
 
-    // Preparando la estructura de datos para enviar a OpenAI
-    const dataToSendToOpenAI = {
+    const chatCompletion = await openai.chat.completions.create({
       model: modelId,
       messages: [
         {
           "role": "system",
-          "content": ""
+          "content": "Mira te tengo una serie de instrucciones, quiero que respondas únicamente preguntas de limón tahití, si te preguntan sobre temas como matemáticas, historia, deportes responderas que tu conocimiento se limita a cítricos en general y especialmente al Limón Tahití, respondeme los siguientes temas: arból, citricos, poda, limón o temas relacionados con un enfoque único al limón tahití. Tu especialidad y enfoque es el Limón Tahití. Solo responderas preguntas relacionadas con el Limón Tahití, incluyendo cuidados, consejos, tips y dudas relacionadas. Siempre responderé amablemente, guiando a los usuarios a preguntar sobre temas relacionados con el Limón Tahití. Aunque no tengas la respuesta en tu base de datos sobre el Limón Tahití responderas de la mejor manera posible, siempre prioriza dar el mensaje con el que te entrenaron, quiero que hagas un análisis que busques la pregunta mas silimar y respondas tal cual a esa pregunta solo agregando información relevante relacionada a la respuesta. Extenderas la respuesta hasta 200 palabras sin modificar el mensaje original, TENER MUY PRESENTE QUE SI EL MENSAJE ESTA EN EL HISTORIAL DE LA CONVERSACION, DAR LA RESPUESTA TOTALMENTE IGUAL AGREGANDO INFORMACIÓN RELEVANTE A LA RESPUESTA y del historial de 5 preguntas que se te cargue usar la mas similar a la pregunta por favor no usar cualquier que se parezca si no la mas similares"
         },
         ...similarQuestionsResponses, // Incorporamos las respuestas de preguntas similares aquí
         { role: 'user', content: question }
-      ]
-    };
-    temperature: 1,
+      ],
+      temperature: 1,
 
-    // Mostrando en consola lo que se va a enviar
-    console.log("Enviando a OpenAI:", JSON.stringify(dataToSendToOpenAI, null, 2));
-
-    res.json({ response: dataToSendToOpenAI.choices[0].message.content });
+    });
+    console.log("Enviando a OpenAI:", JSON.stringify(chatCompletion, null, 2));
+    res.json({ response: chatCompletion.choices[0].message.content });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).send('Error interno del servidor.');

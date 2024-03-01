@@ -14,7 +14,7 @@ const openai = new OpenAI({
 
 app.post('/get-response', async (req, res) => {
   try {
-    const modelId = "ft:gpt-3.5-turbo-1106:equilibria::8p6IHucG";// Reemplaza con el ID de tu modelo Fine-tuned
+    const modelId = "gpt-3.5-turbo";// Reemplaza con el ID de tu modelo Fine-tuned
     const question = req.body.question;
 
     if (typeof question !== 'string' || question.trim().length === 0) {
@@ -68,7 +68,7 @@ app.post('/get-response', async (req, res) => {
           "role": "assistant",
           "content": "Respuesta: Elegir el momento adecuado para fertilizar es crucial. Debes identificar las épocas de mayor demanda nutricional de la planta, que generalmente coinciden con las fases de brote vegetativo, floración y cuajado de frutos. La frecuencia de fertilización no debe superar los tres meses, ya que los cítricos, incluida el Limón Tahití, presentan simultáneamente todas las etapas de desarrollo. Al aplicar fertilizantes en los momentos clave, garantizas que las plantas reciban los nutrientes necesarios para un crecimiento y desarrollo óptimos."
         },
-        
+
         { role: 'user', content: question }
       ]
     });

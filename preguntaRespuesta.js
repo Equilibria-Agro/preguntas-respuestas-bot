@@ -72,7 +72,7 @@ app.post('/get-response', async (req, res) => {
     // Mostrando en consola lo que se va a enviar
     console.log("Enviando a OpenAI:", JSON.stringify(dataToSendToOpenAI, null, 2));
 
-    res.json({ response: chatCompletion.choices[0].message.content });
+    res.json({ response: dataToSendToOpenAI.choices[0].message.content });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).send('Error interno del servidor.');

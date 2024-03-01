@@ -69,6 +69,8 @@ app.post('/get-response', async (req, res) => {
 
     });
     console.log("Enviando a OpenAI:", JSON.stringify(chatCompletion, null, 2));
+
+    console.log("Enviando a OpenAI:", JSON.stringify(similarQuestionsResponses,null, 2));
     res.json({ response: chatCompletion.choices[0].message.content });
   } catch (error) {
     console.error('Error:', error);

@@ -77,14 +77,23 @@ app.post('/find-similar-question', (req, res) => {
   // Preparamos la respuesta con las 5 preguntas más similares y sus respuestas
   const responses = topMatches.map(match => {
     const matchIndex = contexts.findIndex(context => context.content === match.target);
-    return {
-      question: contexts[matchIndex].content,
-      answer: matchIndex + 1 < contexts.length ? contexts[matchIndex + 1].content : "Respuesta no disponible"
-    };
-  });
+    // Aseguramos que el índice sea par para obtener siempre una pregunta
+    const adjustedIndex = matchIndex % 2 === 0 ? matchIndex : matchIndex - 1;
+    return [
+      {
+        role: "user",
+        content: contexts[adjustedIndex] ? contexts[adjustedIndex].content : "Pregunta no disponible"
+      },
+      {
+        role: "assistant",
+        content: adjustedIndex + 1 < contexts.length && contexts[adjustedIndex + 1] ? contexts[adjustedIndex + 1].content : "Respuesta no disponible"
+      }
+    ];
+  }).flat(); // Aplanamos el array para que sea una secuencia de objetos de pregunta y respuesta
 
   res.json(responses);
 });
+
 
 const PORT = process.env.PORT || 3000;
 

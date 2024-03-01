@@ -62,18 +62,28 @@ app.post('/find-similar-question', (req, res) => {
     return res.status(400).send('La pregunta es requerida y debe ser un texto válido.');
   }
 
+  // Extraemos solo las preguntas para compararlas con la pregunta del usuario
   const questions = contexts.map(context => context.content);
-  const bestMatch = stringSimilarity.findBestMatch(userQuestion, questions);
   
-  if (bestMatch.bestMatch.rating > 0.5) { // Ajusta el umbral según necesites
-    const bestMatchIndex = bestMatch.bestMatchIndex;
-    res.json({
-      question: contexts[bestMatchIndex].content,
-      answer: contexts[bestMatchIndex + 1].content // Asume que la respuesta sigue inmediatamente a la pregunta
-    });
-  } else {
-    res.json({ role: 'user', content: userQuestion }); // Devuelve la misma pregunta si no encuentra una similar
-  }
+  // Obtenemos las coincidencias ordenadas por su grado de similitud
+  const matches = stringSimilarity.findBestMatch(userQuestion, questions).ratings;
+  
+  // Ordenamos las coincidencias por su score de similitud de mayor a menor
+  const sortedMatches = matches.sort((a, b) => b.rating - a.rating);
+  
+  // Seleccionamos las 5 coincidencias superiores
+  const topMatches = sortedMatches.slice(0, 5);
+  
+  // Preparamos la respuesta con las 5 preguntas más similares y sus respuestas
+  const responses = topMatches.map(match => {
+    const matchIndex = contexts.findIndex(context => context.content === match.target);
+    return {
+      question: contexts[matchIndex].content,
+      answer: matchIndex + 1 < contexts.length ? contexts[matchIndex + 1].content : "Respuesta no disponible"
+    };
+  });
+
+  res.json(responses);
 });
 
 const PORT = process.env.PORT || 3000;

@@ -67,7 +67,7 @@ app.post("/get-response", async (req, res) => {
     // Primero, obtenemos las preguntas similares
     const similarQuestionsResponses = await findSimilarQuestions(question);
 
-    const modelId = "gpt-3.5-turbo-16k";
+    const modelId = "ft:gpt-3.5-turbo-1106:equilibria::8p6IHucG";
 
     const chatCompletion = await openai.chat.completions.create({
       model: modelId,

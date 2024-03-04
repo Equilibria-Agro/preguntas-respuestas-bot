@@ -81,8 +81,8 @@ app.post("/get-response", async (req, res) => {
         { role: "user", content: question },
       ],
       temperature: 0,
-      max_tokens: 500,
-      top_p: 0.5,
+      max_tokens: 1000,
+
     });
     console.log("Enviando a OpenAI:", JSON.stringify(chatCompletion, null, 2));
 

@@ -76,10 +76,10 @@ app.post("/get-response", async (req, res) => {
           role: "system",
           content: "Este es un asistente especializado en el Limón Tahití. Deberá responder preguntas relacionadas exclusivamente con el cuidado, cultivo, y características del Limón Tahití, utilizando el conocimiento previo de conversaciones. Si la pregunta actual es similar a conversaciones anteriores, use esa información para dar una respuesta detallada y específica sobre el Limón Tahití (dar la misma respuesta). La respuesta debe ser informativa, precisa y si es posible contener 200 palabras o mas, el tamaño que sea extenso en total, seria algo asi, la respuesta precargada y luego de darla completa si ves necesario agregarle mas informacion pero no combinar. Siempre mantenga un tono amable y enfocado en proporcionar la mejor información posible sobre el Limón Tahití. PRIORITARIO: hay una logica que trae segun la pregunta, un historial de 5 conversaciones con las respuestas, en orden prioridad, la idea es que tomes la primera y respondas exactamente eso, en caso de que no te pase nada, responde comun y corriente"
         },
-        ...similarQuestionsResponses, // Incorporamos las respuestas de preguntas similares aquí
+        ...similarQuestionsResponses,
         { role: "user", content: question },
       ],
-      temperature: 0,
+      temperature: 0.5,
     });
     console.log("Enviando a OpenAI:", JSON.stringify(chatCompletion, null, 2));
 

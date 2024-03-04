@@ -26,34 +26,33 @@ async function findSimilarQuestions(userQuestion) {
     questions
   ).ratings;
   const sortedMatches = matches.sort((a, b) => b.rating - a.rating);
-  const topMatches = sortedMatches.slice(0, 5);
+  // Tomamos solo la coincidencia superior en lugar de las cinco primeras
+  const bestMatch = sortedMatches[0];
 
-  const responses = topMatches
-    .map((match) => {
-      const matchIndex = contexts.findIndex(
-        (context) => context.content === match.target
-      );
-      const adjustedIndex = matchIndex % 2 === 0 ? matchIndex : matchIndex - 1;
-      return [
-        {
-          role: "user",
-          content: contexts[adjustedIndex]
-            ? contexts[adjustedIndex].content
-            : "Pregunta no disponible",
-        },
-        {
-          role: "assistant",
-          content:
-            adjustedIndex + 1 < contexts.length && contexts[adjustedIndex + 1]
-              ? contexts[adjustedIndex + 1].content
-              : "Respuesta no disponible",
-        },
-      ];
-    })
-    .flat();
+  const matchIndex = contexts.findIndex(
+    (context) => context.content === bestMatch.target
+  );
+  const adjustedIndex = matchIndex % 2 === 0 ? matchIndex : matchIndex - 1;
+  const response = [
+    {
+      role: "user",
+      content: contexts[adjustedIndex]
+        ? contexts[adjustedIndex].content
+        : "Pregunta no disponible",
+    },
+    {
+      role: "assistant",
+      content:
+        adjustedIndex + 1 < contexts.length && contexts[adjustedIndex + 1]
+          ? contexts[adjustedIndex + 1].content
+          : "Respuesta no disponible",
+    },
+  ];
 
-  return responses;
+  // Retorna solo el par de pregunta-respuesta más relevante
+  return response.flat();
 }
+
 
 app.post("/get-response", async (req, res) => {
   try {
@@ -67,7 +66,7 @@ app.post("/get-response", async (req, res) => {
     // Primero, obtenemos las preguntas similares
     const similarQuestionsResponses = await findSimilarQuestions(question);
 
-    const modelId = "ft:gpt-3.5-turbo-1106:equilibria::8p6IHucG";
+    const modelId = "gpt-3.5-turbo-1106";
 
     const chatCompletion = await openai.chat.completions.create({
       model: modelId,

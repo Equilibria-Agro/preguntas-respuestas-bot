@@ -53,36 +53,6 @@ async function findSimilarQuestions(userQuestion) {
   return response.flat();
 }
 
-const additionalContexts = [
-  {
-    question: " ¿Cómo se siembra un árbol de limón Tahití?",
-    answer: " Debe realizarse con el inicio de las lluvias, aunque la disponibilidad de riego permitirá realizar esta labor en cualquier época del año. Una vez ubicadas las plantas en los sitios de plantación, se retira la bolsa y se ubica la planta en el centro del hoyo (de 40x40x40 cm, estas dimensiones pueden variar en relación con las características del suelo), procurando que el cuello quede unos 5-10 cm por encima de la superficie. Otro tipo de metodología es realizar siembra en \"tortas\". Esto consiste en armar un montículo de tierra de unos 30 o 40 cm de altura y sembrar el árbol en el medio de él. Esto hará que el árbol al expandir las raíces se encuentre con tierra suelta y pueda captar más agua y más nutrientes y sin mayor esfuerzo. A diferencia de la siembra en hoyo no se encontrará con capas duras en el suelo en sus primeras etapas que retrasen o detengan su crecimiento. En ambos casos el diámetro del plato debe de ser de 3 metros, aplicar un pre emergente para prevenir las arvenses y el árbol debe de ir acompañado de un tutor. Refuerza tus conocimientos, ¡visualiza este video complementario ahora!",
-    link: "https://www.youtube.com/watch?v=73l95nu79aY&t=1s&ab_channel=EquilibriaAgro"
-  },
-  // Añade más entradas según sea necesario.
-];
-
-
-async function findRelevantLink(userQuestion) {
-  // Supongamos que la similitud de la cadena es suficiente para una coincidencia relevante
-  let maxSimilarity = 0;
-  let relevantLink = null;
-
-  for (const context of additionalContexts) {
-    // Verifica la similitud de la pregunta del usuario con las preguntas en additionalContexts
-    let similarityWithQuestion = stringSimilarity.compareTwoStrings(userQuestion, context.question);
-    // Verifica la similitud de la pregunta del usuario con las respuestas en additionalContexts (opcionalmente, podrías usar también la respuesta generada)
-    // let similarityWithAnswer = stringSimilarity.compareTwoStrings(userQuestion, context.answer);
-
-    if (similarityWithQuestion > maxSimilarity /* || similarityWithAnswer > maxSimilarity */) {
-      maxSimilarity = similarityWithQuestion; // Actualiza esto si también consideras similarityWithAnswer
-      relevantLink = context.link;
-    }
-  }
-
-  return relevantLink; // Retorna null si no se encuentra ninguna coincidencia relevante.
-}
-
 
 app.post("/get-response", async (req, res) => {
   try {
@@ -93,10 +63,11 @@ app.post("/get-response", async (req, res) => {
         .send("La pregunta es requerida y debe ser un texto válido.");
     }
 
-    // Continúa con la lógica existente para obtener las respuestas similares y generar la respuesta con OpenAI
+    // Primero, obtenemos las preguntas similares
     const similarQuestionsResponses = await findSimilarQuestions(question);
 
     const modelId = "gpt-3.5-turbo-1106";
+
     const chatCompletion = await openai.chat.completions.create({
       model: modelId,
       messages: [
@@ -108,15 +79,13 @@ app.post("/get-response", async (req, res) => {
         { role: "user", content: question },
       ],
     });
+    console.log("Enviando a OpenAI:", JSON.stringify(chatCompletion, null, 2));
 
-    // Busca un enlace relevante basado en la pregunta del usuario
-    const relevantLink = await findRelevantLink(question);
-
-    // Incluye el enlace relevante en la respuesta final, si se encontró alguno
-    res.json({ 
-      response: chatCompletion.choices[0].message.content + " " + relevantLink,
-      link: relevantLink // Puede ser null si no se encontró un enlace relevante
-    });
+    console.log(
+      "Enviando a OpenAI:",
+      JSON.stringify(similarQuestionsResponses, null, 2)
+    );
+    res.json({ response: chatCompletion.choices[0].message.content });
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Error interno del servidor.");

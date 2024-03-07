@@ -102,7 +102,7 @@ app.post("/get-response", async (req, res) => {
       messages: [
         {
           role: "system",
-          content: "En este chat, va a haber una conversación precargada..."
+          content: "En este chat, va a haber una conversación precargada, la idea es que siempre des la misma respuesta y exactamente esa. Necesito que respondas tal cual la respuesta que tienes ya precargada, no mitas NINGUNA palabra, haz un análisis, busca la respuesta de la pregunta que te hagan y dame esa respuesta tal cual a como está precargada, así la pregunta sea diferente busca la mas similar y da la respuesta tal cual a como esta precargada"
         },
         ...similarQuestionsResponses,
         { role: "user", content: question },

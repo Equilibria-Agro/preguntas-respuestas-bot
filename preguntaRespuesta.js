@@ -86,7 +86,7 @@ app.post("/get-response", async (req, res) => {
     }
 
     // Ahora utilizamos la nueva función que incluye la lógica del enlace
-    const similarQuestionsResponsesWithLink = await findSimilarQuestionsWithLink(question);
+    const similarQuestionsResponsesWithLink = await findSimilarQuestions(question);
 
     const modelId = "gpt-3.5-turbo-1106";
 

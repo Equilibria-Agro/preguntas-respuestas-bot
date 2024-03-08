@@ -53,6 +53,34 @@ async function findSimilarQuestions(userQuestion) {
   return response.flat();
 }
 
+app.post("/find-and-store-link", async (req, res) => {
+  // Definición de preguntas, respuestas y enlaces directamente en el método
+  const contexts = [
+    { content: "¿Cuándo y cómo se trasplantan las plantas de Limón Tahití?", answer: " El trasplante de Limón Tahití es un paso delicado. Idealmente, se realiza durante las épocas de inicio de las lluvias o cuando se dispone de un sistema de riego. Los hoyos para el trasplante deben medir aproximadamente 40x40x40 cm. Al trasplantar, asegúrate de que el cuello de la raíz quede ligeramente por encima del nivel del suelo. Es beneficioso aplicar una mezcla de materia orgánica bien compostada y un fertilizante balanceado en el momento del trasplante para promover un buen establecimiento", link: "https://ejemplo.com/reset-password" },
+
+  ];
+
+  try {
+    const { question, answer } = req.body;
+    if (typeof question !== 'string' || question.trim().length === 0 || typeof answer !== 'string' || answer.trim().length === 0) {
+      return res.status(400).send("La pregunta y la respuesta son requeridas y deben ser textos válidos.");
+    }
+
+    // Buscar una coincidencia en la lista definida
+    const match = contexts.find(context => context.content === question && context.answer === answer);
+    if (match) {
+      // Si se encuentra una coincidencia, devuelve el enlace
+      res.json({ success: true, link: match.link });
+    } else {
+      // Si no se encuentra una coincidencia, informa al usuario
+      res.status(404).json({ success: false, message: "No se encontró una coincidencia para la pregunta y respuesta proporcionadas." });
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Error interno del servidor.");
+  }
+});
+
 
 app.post("/get-response", async (req, res) => {
   try {

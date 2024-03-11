@@ -95,21 +95,25 @@ app.post("/get-response", async (req, res) => {
 
     console.log("Historial de preguntas similares:", similarQuestionsResponses); // Historial que se trajo
 
+    // Asumiendo que siempre habrá solo una pregunta en similarQuestionsResponses
+    const uniqueQuestion = similarQuestionsResponses.find(r => r.role === "user");
+    if (!uniqueQuestion) {
+      console.error("No se encontró una pregunta de usuario única.");
+      return res.status(500).send("Error interno al procesar la pregunta.");
+    }
+
+    const customContexts = [
+      { content: " ¿Cómo se siembra un árbol de limón Tahití?", answer: " Debe realizarse con el inicio de las lluvias, aunque la disponibilidad de riego permitirá realizar esta labor en cualquier época del año. Una vez ubicadas las plantas en los sitios de plantación, se retira la bolsa y se ubica la planta en el centro del hoyo (de 40x40x40 cm, estas dimensiones pueden variar en relación con las características del suelo), procurando que el cuello quede unos 5-10 cm por encima de la superficie. Otro tipo de metodología es realizar siembra en \"tortas\". Esto consiste en armar un montículo de tierra de unos 30 o 40 cm de altura y sembrar el árbol en el medio de él. Esto hará que el árbol al expandir las raíces se encuentre con tierra suelta y pueda captar más agua y más nutrientes y sin mayor esfuerzo. A diferencia de la siembra en hoyo no se encontrará con capas duras en el suelo en sus primeras etapas que retrasen o detengan su crecimiento. En ambos casos el diámetro del plato debe de ser de 3 metros, aplicar un pre emergente para prevenir las arvenses y el árbol debe de ir acompañado de un tutor. Refuerza tus conocimientos, ¡visualiza este video complementario ahora!", link: "https://ejemplo.com/reset-password" },
+    ];
+
     let linkToAdd = ''; // Variable para almacenar el enlace si es encontrado
-    for (let response of similarQuestionsResponses) {
-      if (response.role === "user") continue; // Saltar mensajes de usuario
-      // Añade el log para mostrar con qué se está comparando
-      console.log("Comparando respuesta con contexto para encontrar enlace.");
-      const match = contexts.find(context => {
-        // Muestra la comparación actual
-        console.log(`Comparando pregunta del contexto: '${context.content.trim()}' con respuesta similar: '${response.content.trim()}'`);
-        return context.content.trim() === response.content.trim();
-      });
-      if (match) {
-        linkToAdd = match.link; // Asigna el enlace encontrado
-        console.log("Enlace encontrado:", linkToAdd); // Log del enlace encontrado
-        break; // Sale del bucle ya que encontramos un enlace
-      }
+    const match = customContexts.find(context => {
+      console.log(`Comparando pregunta única: '${uniqueQuestion.content.trim()}' con pregunta de contexto: '${context.content.trim()}'`);
+      return context.content.trim() === uniqueQuestion.content.trim();
+    });
+    if (match) {
+      linkToAdd = match.link; // Asigna el enlace encontrado
+      console.log("Enlace encontrado:", linkToAdd); // Log del enlace encontrado
     }
 
     const modelId = "gpt-3.5-turbo-1106";
@@ -117,6 +121,7 @@ app.post("/get-response", async (req, res) => {
     const chatCompletion = await openai.chat.completions.create({
       model: modelId,
       messages: [
+        // Configuración del sistema y pregunta/respuetas precedentes
         {
           role: "system",
           content: "En este chat, va a haber una conversación precargada, la idea es que siempre des la misma respuesta y exactamente esa. Necesito que respondas tal cual la respuesta que tienes ya precargada, no omitas NINGUNA palabra, haz un análisis, busca la respuesta de la pregunta que te hagan y dame esa respuesta tal cual a como está precargada, así la pregunta sea diferente busca la mas similar y da la respuesta tal cual a como esta precargada. Este es un asistente especializado en el Limón y arboles. Deberá responder preguntas relacionadas exclusivamente con el cuidado, cultivo, y características del Limón Tahití. Siempre mantenga un tono amable y enfocado en proporcionar la mejor información posible sobre el Limón Tahití. Cuando pregunten por temas que no tengan que ver con lo mencionado o preguntas que no traigan un historial, responde amablemente y pidele que vuelva y consulte con un tema de limon por ejemplo"

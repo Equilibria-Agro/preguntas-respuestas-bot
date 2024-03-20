@@ -185,6 +185,8 @@ app.post("/get-response", async (req, res) => {
         ...similarQuestionsResponses,
         { role: "user", content: question },
       ],
+      max_tokens: 4096,
+      temperature: 0.2,
     });
 
     console.log("Mensajes enviados a OpenAI:", chatCompletion.model, chatCompletion.messages); // Log de lo que se envió al final
